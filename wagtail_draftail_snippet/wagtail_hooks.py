@@ -65,15 +65,15 @@ def register_snippet_embed_feature(features):
 
 @hooks.register("insert_editor_js")
 def editor_js():
+    # window.chooserUrls.snippetChooser = '{0}';
     return format_html(
         """
             <script>
-                window.chooserUrls.snippetChooser = '{0}';
-                window.chooserUrls.snippetLinkModelChooser = '{1}';
-                window.chooserUrls.snippetEmbedModelChooser = '{2}';
+                window.chooserUrls.snippetLinkModelChooser = '{0}';
+                window.chooserUrls.snippetEmbedModelChooser = '{1}';
             </script>
         """,
-        reverse('wagtailsnippets:choose_generic'),
+        # reverse('wagtailsnippets:list'),
         reverse("wagtaildraftailsnippet:choose-snippet-link-model"),
         reverse("wagtaildraftailsnippet:choose-snippet-embed-model"),
     )
